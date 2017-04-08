@@ -1,5 +1,5 @@
 
-#transition{
+.transition{
     width: 100px;
     height: 100px;
     background-image: url("pics/knowledge_graph_logo.png");
@@ -8,38 +8,142 @@
     transition: width 1s, height 1s;
 }
 
-#transition:hover {
+.transition:hover {
     width: 800px;
     height: 450px;
     background-image: url("pics/iPhone_7.jpg");
     background-repeat: no-repeat;
 }
 
-#animate {
-    width:  75px;
-
-    top:    -60px;
+.dinosaur {
+    width: 125px;
     background-repeat: no-repeat;
-    position: absolute;
-    -webkit-animation-name: animation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    animation-name: animation;
-    animation-duration: 20s;
+    position: relative;
+    -webkit-animation-name: dinosaur-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: dinosaur-animation;
+    animation-duration: 5s;
+    visibility: hidden;
 
 }
 /* Safari 4.0 - 8.0 */
-@-webkit-keyframes animation {
-    /*add code later
-    ;
-     */
+@-webkit-keyframes dinosaur-animation {
+     0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 15deg)}
+     5%    {          visibility: visible; left: 950px; top:0px; transform: rotate(-15deg)}
+     10%   {          visibility: visible; left: 900px; top:0px; transform: rotate( 15deg)}
+     15%   {          visibility: visible; left: 850px; top:0px; transform: rotate(-15deg)}
+     20%   {          visibility: visible; left: 800px; top:0px; transform: rotate( 15deg)}
+     25%   {          visibility: visible; left: 750px; top:0px; transform: rotate(-15deg)}
+     30%   {          visibility: visible; left: 700px; top:0px; transform: rotate( 15deg)}
+     35%   {          visibility: visible; left: 650px; top:0px; transform: rotate(-15deg)}
+     40%   {          visibility: visible; left: 600px; top:0px; transform: rotate( 15deg)}
+     45%   {          visibility: visible; left: 550px; top:0px; transform: rotate(-15deg)}
+     50%   {          visibility: visible; left: 500px; top:0px; transform: rotate( 15deg)}
+     55%   {          visibility: visible; left: 450px; top:0px; transform: rotate(-15deg)}
+     60%   {          visibility: visible; left: 400px; top:0px; transform: rotate( 15deg)}
+     65%   {          visibility: visible; left: 350px; top:0px; transform: rotate(-15deg)}
+     70%   {          visibility: visible; left: 300px; top:0px; transform: rotate( 15deg)}
+     75%   {          visibility: visible; left: 250px; top:0px; transform: rotate(-15deg)}
+     80%   {          visibility: visible; left: 200px; top:0px; transform: rotate( 15deg)}
+     85%   {visibility: visible; left: 150px; top:0px; transform: rotate(-15deg) scale(0.7,0.7)}
+     90%   {visibility: visible; left: 100px; top:0px; transform: rotate( 15deg) scale(0.5,0.5)}
+     95%   {visibility: visible; left:  50px; top:0px; transform: rotate(-15deg) scale(0.3,0.3)}
+     100%  {visibility: visible; left:   0px; top:0px; transform: rotate( 15deg) scale(0.1,0.1)}
 }
 
 /* Standard syntax */
-@keyframes animation {
-    0%    { right:-50px; top:0px;}
-    10%   { left:0px; top:0px;}
-    100%  { left:0px; top:0px;}
+@keyframes dinosaur-animation {
+    0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 15deg)}
+    5%    {          visibility: visible; left: 950px; top:0px; transform: rotate(-15deg)}
+    10%   {          visibility: visible; left: 900px; top:0px; transform: rotate( 15deg)}
+    15%   {          visibility: visible; left: 850px; top:0px; transform: rotate(-15deg)}
+    20%   {          visibility: visible; left: 800px; top:0px; transform: rotate( 15deg)}
+    25%   {          visibility: visible; left: 750px; top:0px; transform: rotate(-15deg)}
+    30%   {          visibility: visible; left: 700px; top:0px; transform: rotate( 15deg)}
+    35%   {          visibility: visible; left: 650px; top:0px; transform: rotate(-15deg)}
+    40%   {          visibility: visible; left: 600px; top:0px; transform: rotate( 15deg)}
+    45%   {          visibility: visible; left: 550px; top:0px; transform: rotate(-15deg)}
+    50%   {          visibility: visible; left: 500px; top:0px; transform: rotate( 15deg)}
+    55%   {          visibility: visible; left: 450px; top:0px; transform: rotate(-15deg)}
+    60%   {          visibility: visible; left: 400px; top:0px; transform: rotate( 15deg)}
+    65%   {          visibility: visible; left: 350px; top:0px; transform: rotate(-15deg)}
+    70%   {          visibility: visible; left: 300px; top:0px; transform: rotate( 15deg)}
+    75%   {          visibility: visible; left: 250px; top:0px; transform: rotate(-15deg)}
+    80%   {          visibility: visible; left: 200px; top:0px; transform: rotate( 15deg)}
+    85%   {visibility: visible; left: 150px; top:0px; transform: rotate(-15deg) scale(0.7,0.7)}
+    90%   {visibility: visible; left: 100px; top:0px; transform: rotate( 15deg) scale(0.5,0.5)}
+    95%   {visibility: visible; left:  50px; top:0px; transform: rotate(-15deg) scale(0.3,0.3)}
+    100%  {visibility: visible; left:   0px; top:0px; transform: rotate( 15deg) scale(0.1,0.1)}
 }
+.chest {
+    margin-top: 59px;
+    width:  75px;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-animation-name: chest-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: chest-animation;
+    animation-duration: 5s;
+    transform:scale(2.0,2.0);
+}
+.chest-vibrate{
+    margin-top: 59px;
+    width:  75px;
+    background-repeat: no-repeat;
+    position: relative;
+    transform:scale(2.0,2.0);
+
+
+}
+@-webkit-keyframes chest-animation {
+    0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 5deg)}
+    5%    {          visibility: visible; left: 950px; top:0px; transform: rotate(-5deg)}
+    10%   {          visibility: visible; left: 900px; top:0px; transform: rotate( 5deg)}
+    15%   {          visibility: visible; left: 850px; top:0px; transform: rotate(-5deg)}
+    20%   {          visibility: visible; left: 800px; top:0px; transform: rotate( 5deg)}
+    25%   {          visibility: visible; left: 750px; top:0px; transform: rotate(-5deg)}
+    30%   {          visibility: visible; left: 700px; top:0px; transform: rotate( 5deg)}
+    35%   {          visibility: visible; left: 650px; top:0px; transform: rotate(-5deg)}
+    40%   {          visibility: visible; left: 600px; top:0px; transform: rotate( 5deg)}
+    45%   {          visibility: visible; left: 550px; top:0px; transform: rotate(-5deg)}
+    50%   {          visibility: visible; left: 500px; top:0px; transform: rotate( 5deg)}
+    55%   {          visibility: visible; left: 450px; top:0px; transform: rotate(-5deg)}
+    60%   {          visibility: visible; left: 400px; top:0px; transform: rotate( 5deg)}
+    65%   {          visibility: visible; left: 350px; top:0px; transform: rotate(-5deg)}
+    70%   {          visibility: visible; left: 300px; top:0px; transform: rotate( 5deg)}
+    75%   {          visibility: visible; left: 250px; top:0px; transform: rotate(-5deg)}
+    80%   {          visibility: visible; left: 200px; top:0px; transform: rotate( 5deg)}
+    85%   {visibility: visible; left: 150px; top:0px;transform:scale(1.2,1.2)}
+    90%   {visibility: visible; left: 100px; top:0px;transform:scale(1.5,1.5)}
+    95%   {visibility: visible; left:  50px; top:0px;transform:scale(1.75,1.75)}
+    100%  {visibility: visible; left:   0px; top:0px;transform:scale(2.0,2.0)}
+}
+
+/* Standard syntax */
+@keyframes animation-chest {
+    0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 5deg)}
+    5%    {          visibility: visible; left: 950px; top:0px; transform: rotate(-5deg)}
+    10%   {          visibility: visible; left: 900px; top:0px; transform: rotate( 5deg)}
+    15%   {          visibility: visible; left: 850px; top:0px; transform: rotate(-5deg)}
+    20%   {          visibility: visible; left: 800px; top:0px; transform: rotate( 5deg)}
+    25%   {          visibility: visible; left: 750px; top:0px; transform: rotate(-5deg)}
+    30%   {          visibility: visible; left: 700px; top:0px; transform: rotate( 5deg)}
+    35%   {          visibility: visible; left: 650px; top:0px; transform: rotate(-5deg)}
+    40%   {          visibility: visible; left: 600px; top:0px; transform: rotate( 5deg)}
+    45%   {          visibility: visible; left: 550px; top:0px; transform: rotate(-5deg)}
+    50%   {          visibility: visible; left: 500px; top:0px; transform: rotate( 5deg)}
+    55%   {          visibility: visible; left: 450px; top:0px; transform: rotate(-5deg)}
+    60%   {          visibility: visible; left: 400px; top:0px; transform: rotate( 5deg)}
+    65%   {          visibility: visible; left: 350px; top:0px; transform: rotate(-5deg)}
+    70%   {          visibility: visible; left: 300px; top:0px; transform: rotate( 5deg)}
+    75%   {          visibility: visible; left: 250px; top:0px; transform: rotate(-5deg)}
+    80%   {          visibility: visible; left: 200px; top:0px; transform: rotate( 5deg)}
+    85%   {visibility: visible; left: 150px; top:0px;transform:scale(1.2,1.2)}
+    90%   {visibility: visible; left: 100px; top:0px;transform:scale(1.5,1.5)}
+    95%   {visibility: visible; left:  50px; top:0px;transform:scale(1.75,1.75)}
+    100%  {visibility: visible; left:   0px; top:0px;transform:scale(2.0,2.0)}
+}
+
 #vibrate {
     left:   500px;
     top:    200px;
@@ -51,7 +155,7 @@
     -webkit-animation-name: vibrate; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
     animation-name: vibrate;
-    animation-duration: 1s;
+    animation-duration: 4s;
     animation-iteration-count:infinite;
 }
 /* Safari 4.0 - 8.0 */

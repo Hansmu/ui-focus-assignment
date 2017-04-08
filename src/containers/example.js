@@ -45,17 +45,20 @@ class Example extends Component {
                     Hello Click Me
                 </Button>
 
+                { this.state.isButtonDisabled &&
                 <center>
                     <img id="animate"
-                         className={this.getAnimationClassName('animationChest')}
+                         className={this.getAnimationClassName('dinosaur')}
                          src="../../static/dinosaur.png"/>
-                </center>
+
 
                 <img id="chest"
-                     className={this.getAnimationClassName('animationChest')}
+                     className={this.getAnimationClassName('chest')}
                      src="../../static/Chest.png"
                      onClick={this.setButtonEnabled}/>
+                </center> }
             </div>
+
         );
     }
 }

@@ -11,6 +11,7 @@ class Example extends Component {
 
         this.state = {
             isButtonDisabled: false,
+            isVibrating: false,
             currentClicks: 0
         };
 
@@ -25,12 +26,17 @@ class Example extends Component {
 
     setDisabledIfClicksFinished() {
         if (this.state.currentClicks === CLICKS_BEFORE_ANIMATION) {
-            this.setState({isButtonDisabled: true});
+            this.setState({isButtonDisabled: true},
+                () => window.setTimeout(() => this.setState({isVibrating: true}), 5000));
         }
     }
 
     setButtonEnabled() {
-        this.setState({currentClicks: 0, isButtonDisabled: false});
+        this.setState({
+            currentClicks: 0,
+            isButtonDisabled: false,
+            isVibrating: false
+        });
     }
 
     getAnimationClassName(animationClass) {
@@ -53,7 +59,7 @@ class Example extends Component {
 
 
                 <img id="chest"
-                     className={this.getAnimationClassName('chest')}
+                     className={this.state.isVibrating ? 'chest-vibrate' : this.getAnimationClassName('chest')}
                      src="../../static/Chest.png"
                      onClick={this.setButtonEnabled}/>
                 </center> }

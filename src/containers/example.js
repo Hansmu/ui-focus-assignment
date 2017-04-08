@@ -11,7 +11,7 @@ class Example extends Component {
                 <p>Hello darkness my old fried</p>
                 <div id="animate"/>
                 <Button>Hello Click Me</Button>
-                <img src="../../static/dinosaur.png"/>
+                <img src="../../static/dinosaur.png" id="animate" />
             </div>
         );
     }

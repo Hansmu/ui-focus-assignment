@@ -6,6 +6,6 @@ import Example from './containers/example';
 
 export default (
     <Route path="/" component={Header}>
-        <Route path="posts/new" component={Example} />
+        <Route path="example" component={Example} />
     </Route>
 );

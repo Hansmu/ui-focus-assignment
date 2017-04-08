@@ -92,8 +92,11 @@
     background-repeat: no-repeat;
     position: relative;
     transform:scale(2.0,2.0);
-
-
+    -webkit-animation-name: vibrate; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: vibrate;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
 }
 @-webkit-keyframes chest-animation {
     0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 5deg)}
@@ -160,9 +163,21 @@
 }
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes vibrate {
-    0%   { left:-60px; top:100px;}
-    50%  { left:190px; top:0px;}
-    100%  { left:100px; top:-60px;}
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 /* Standard syntax */

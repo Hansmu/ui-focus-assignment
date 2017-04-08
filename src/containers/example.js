@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import { Button, Row } from 'react-bootstrap';
+import { Button, Row, Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const CLICKS_BEFORE_ANIMATION = 5;
 let vibrateTimeout;
@@ -15,6 +15,7 @@ class Example extends Component {
             isButtonDisabled: false,
             isVibrating: false,
             isCoinDisplayed: false,
+            isFading: false,
             currentClicks: 0
         };
 
@@ -25,9 +26,10 @@ class Example extends Component {
     }
 
     increaseClicksMade() {
-        this.setState({isCoinDisplayed: false}, () =>
-            this.setState({currentClicks: this.state.currentClicks + 1, isCoinDisplayed: true}, this.setDisabledIfClicksFinished));
-
+        this.setState({isCoinDisplayed: false}, () => {
+            this.addCoinsToTotalScore(1);
+            this.setState({currentClicks: this.state.currentClicks + 1, isCoinDisplayed: true}, this.setDisabledIfClicksFinished);
+        });
     }
 
     setDisabledIfClicksFinished() {
@@ -48,23 +50,55 @@ class Example extends Component {
     }
 
     setButtonEnabled() {
-        audio.pause();
-        window.clearTimeout(vibrateTimeout);
+        if (this.state.isVibrating) {
+            this.addCoinsToTotalScore(5);
+            audio.pause();
+            window.clearTimeout(vibrateTimeout);
 
-        this.setState({
-            currentClicks: 0,
-            isButtonDisabled: false,
-            isVibrating: false
-        });
+            this.setState({isFading: true}, () => {
+                window.setTimeout(() =>
+                        this.setState({
+                            currentClicks: 0,
+                            isButtonDisabled: false,
+                            isVibrating: false,
+                            isFading: false
+                        })
+                    , 1500);
+            });
+        }
+    }
+
+    addCoinsToTotalScore(coinsToAdd) {
+        let score = localStorage.getItem("score") ? localStorage.getItem("score") : 0;
+        localStorage.setItem("score", Number(score) + coinsToAdd);
     }
 
     getAnimationClassName(animationClass) {
         return this.state.isButtonDisabled ? animationClass : '';
     }
 
+    renderCoinsHeader() {
+        return (
+            <Navbar inverse>
+                <Nav pullRight style={{marginRight: '20px'}}>
+                    <Navbar.Text>
+                        <h3>
+                            <img src="../../static/coin.png"/>
+                            { localStorage.getItem("score") ? localStorage.getItem("score") : 0 }
+                        </h3>
+                    </Navbar.Text>
+                </Nav>
+            </Navbar>
+        );
+    }
+
+
     render () {
+        const chestClass = this.state.isVibrating ? 'chest-vibrate' : this.getAnimationClassName('chest');
+
         return (
             <div>
+                { this.renderCoinsHeader() }
                 {
                     this.state.isCoinDisplayed &&
                     <div style={{textAlign: 'center', marginLeft: '-50px'}}>
@@ -86,10 +120,10 @@ class Example extends Component {
                          className={this.getAnimationClassName('dinosaur')}
                          src="../../static/dinosaur.png"/>
 
-                <img id="chest"
-                     className={this.state.isVibrating ? 'chest-vibrate' : this.getAnimationClassName('chest')}
-                     src="../../static/Chest.png"
-                     onClick={this.setButtonEnabled}/>
+                    <img id="chest"
+                         className={this.state.isFading ? `bombRightOut ${chestClass}` : chestClass }
+                         src="../../static/Chest.png"
+                         onClick={this.setButtonEnabled}/>
                 </Row> }
             </div>
 

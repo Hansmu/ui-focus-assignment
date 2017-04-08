@@ -7,6 +7,7 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 import '../style/style.scss';
+import '../style/magic.min.css';
 
 import Example from './containers/example';
 

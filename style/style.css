@@ -121,18 +121,92 @@
     95%   {visibility: visible; left:  50px; top:0px;transform:scale(1.75,1.75)}
     100%  {visibility: visible; left:   0px; top:0px;transform:scale(2.0,2.0)}
 }
+/*  HANS TAHAB PIZZAT, HANS SÖÖB:
+    Cananss, ilma ananassita, suurt paksu
 
-/* Standard syntax */
-.coin-single{
-    
+    Grete tahab:
+    Romana, suurt õhukest
+    Jörgen tahab:
+    Mafiosot, suurt õhukest
+    YO, Word up...YE
+  */
+.coin-bounce-left{
+
     width:  50px;
     background-repeat: no-repeat;
-    position: absolute;
+    position: relative;
+    -webkit-animation-name: coin-bounce-left; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: coin-bounce-left;
+    animation-duration: 2s;
+    visibility: hidden;
+
+}
+.coin-bounce-right{
+
+    width:  50px;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-animation-name: coin-bounce-right; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: coin-bounce-right;
+    animation-duration: 2s;
+    visibility: hidden;
+
+}
+/* Standard syntax */
+.coin-single{
+
+    width:  50px;
+    background-repeat: no-repeat;
+    position: relative;
     -webkit-animation-name: coin-toss; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
     animation-name: coin-toss;
     animation-duration: 1s;
     visibility: hidden;
+}
+@keyframes coin-bounce-left {
+    /* 1fst bounce */
+    0%    {visibility: visible; top:100px;    left:0px;  opacity:1.0}
+    5%    {visibility: visible; top:30px;     left:75px; opacity:1.0}
+    10%   {visibility: visible; top:10px ;    left:125px;opacity:1.0}
+    15%   {visibility: visible; top:50px;     left:163px;opacity:1.0}
+    20%   {visibility: visible; top:100px;    left:200px;opacity:1.0}
+    /* 2nd bounce */
+    30%   {visibility: visible; top:50px ;    left:250px;opacity:1.0}
+    40%   {visibility: visible; top:100px;    left:300px;opacity:1.0}
+    /* 3rd bounce */
+    50%   {visibility: visible; top:60px ;    left:325px;opacity:0.9}
+    60%   {visibility: visible; top:100px;    left:350px;opacity:0.8}
+    /* 4th bounce */
+    70%   {visibility: visible; top:80px ;    left:363px;opacity:0.7}
+    80%   {visibility: visible; top:100px;    left:375px;opacity:0.6}
+    /* 5th bounce */
+    90%   {visibility: visible; top:95px ;    left:381px;opacity:0.4}
+    100%  {visibility: visible; top:100px;    left:387px;opacity:0.2}
+    
+}
+@keyframes coin-bounce-right {
+    /* 1fst bounce */
+    0%    {visibility: visible; top:100px;    right:0px;  opacity:1.0}
+    5%    {visibility: visible; top:30px;     right:75px; opacity:1.0}
+    10%   {visibility: visible; top:10px ;    right:125px;opacity:1.0}
+    15%   {visibility: visible; top:50px;     right:163px;opacity:1.0}
+    20%   {visibility: visible; top:100px;    right:200px;opacity:1.0}
+    /* 2nd bounce */
+    30%   {visibility: visible; top:50px ;    right:250px;opacity:1.0}
+    40%   {visibility: visible; top:100px;    right:300px;opacity:1.0}
+    /* 3rd bounce */
+    50%   {visibility: visible; top:60px ;    right:325px;opacity:0.9}
+    60%   {visibility: visible; top:100px;    right:350px;opacity:0.8}
+    /* 4th bounce */
+    70%   {visibility: visible; top:80px ;    right:363px;opacity:0.7}
+    80%   {visibility: visible; top:100px;    right:375px;opacity:0.6}
+    /* 5th bounce */                          
+    90%   {visibility: visible; top:95px ;    right:381px;opacity:0.4}
+    100%  {visibility: visible; top:100px;    right:387px;opacity:0.2}
+
 }
 @keyframes coin-toss {
     0%    {visibility: visible; top:50px}

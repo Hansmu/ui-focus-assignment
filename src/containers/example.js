@@ -16,12 +16,14 @@ class Example extends Component {
             isVibrating: false,
             isCoinDisplayed: false,
             isFading: false,
+            isBurstingCoin: false,
             currentClicks: 0
         };
 
         this.setVibration = this.setVibration.bind(this);
         this.setButtonEnabled = this.setButtonEnabled.bind(this);
         this.increaseClicksMade = this.increaseClicksMade.bind(this);
+        this.setCoinBurstTimeout = this.setCoinBurstTimeout.bind(this);
         this.setDisabledIfClicksFinished = this.setDisabledIfClicksFinished.bind(this);
     }
 
@@ -51,7 +53,7 @@ class Example extends Component {
 
     setButtonEnabled() {
         if (this.state.isVibrating) {
-            this.addCoinsToTotalScore(5);
+            this.addCoinsToTotalScore(6);
             audio.pause();
             window.clearTimeout(vibrateTimeout);
 
@@ -61,11 +63,18 @@ class Example extends Component {
                             currentClicks: 0,
                             isButtonDisabled: false,
                             isVibrating: false,
+                            isBurstingCoin: true,
                             isFading: false
-                        })
+                        }, this.setCoinBurstTimeout)
                     , 1500);
             });
         }
+    }
+
+    setCoinBurstTimeout() {
+        window.setTimeout(() => {
+            this.setState({isBurstingCoin: false});
+        }, 2000);
     }
 
     addCoinsToTotalScore(coinsToAdd) {
@@ -92,6 +101,27 @@ class Example extends Component {
         );
     }
 
+    renderCoinBundle() {
+        return (
+            <div style={{textAlign: 'center', marginTop: '100px', marginRight: '-400px'}}>
+                <img className="coin-bounce-right" src="../../static/coin.png"/>
+                <img className="coin-bounce-right"
+                     style={{marginTop: '3px', marginLeft: '2px'}}
+                     src="../../static/coin.png"/>
+                <img className="coin-bounce-right"
+                     style={{marginTop: '7px', marginLeft: '-1px'}}
+                     src="../../static/coin.png"/>
+
+                <img className="coin-bounce-left" src="../../static/coin.png"/>
+                <img className="coin-bounce-left"
+                     style={{marginTop: '5px', marginRight: '-5px'}}
+                     src="../../static/coin.png"/>
+                <img className="coin-bounce-left"
+                     style={{marginTop: '5px', marginRight: '-2px'}}
+                     src="../../static/coin.png"/>
+            </div>
+        );
+    }
 
     render () {
         const chestClass = this.state.isVibrating ? 'chest-vibrate' : this.getAnimationClassName('chest');
@@ -99,14 +129,6 @@ class Example extends Component {
         return (
             <div>
                 { this.renderCoinsHeader() }
-                {
-                    this.state.isCoinDisplayed &&
-                    <div style={{textAlign: 'center', marginLeft: '-50px'}}>
-                        <img className="coin-single"
-                                 src="../../static/coin.png"/>
-                    </div>
-                }
-
                 <Row style={{textAlign: 'center', marginTop: '150px'}}>
                     <Button onClick={this.increaseClicksMade}
                             bsStyle="success"
@@ -114,8 +136,15 @@ class Example extends Component {
                         Acquire Coin
                     </Button>
                 </Row>
+                {
+                    this.state.isCoinDisplayed &&
+                    <div style={{textAlign: 'center', marginTop: '-180px'}}>
+                        <img className="coin-single"
+                             src="../../static/coin.png"/>
+                    </div>
+                }
                 { this.state.isButtonDisabled &&
-                <Row style={{textAlign: 'center', marginLeft: '-130px'}}>
+                <Row style={{textAlign: 'center', marginLeft: '-130px', marginTop: '200px'}}>
                     <img id="animate"
                          className={this.getAnimationClassName('dinosaur')}
                          src="../../static/dinosaur.png"/>
@@ -125,6 +154,7 @@ class Example extends Component {
                          src="../../static/Chest.png"
                          onClick={this.setButtonEnabled}/>
                 </Row> }
+                { this.state.isBurstingCoin && this.renderCoinBundle() }
             </div>
 
         );

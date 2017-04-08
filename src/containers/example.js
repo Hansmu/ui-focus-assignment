@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
 
 const CLICKS_BEFORE_ANIMATION = 5;
+let vibrateTimeout;
+let audio = new Audio('../../static/Melody.mp3');
 
 class Example extends Component {
 
@@ -15,6 +17,7 @@ class Example extends Component {
             currentClicks: 0
         };
 
+        this.setVibration = this.setVibration.bind(this);
         this.setButtonEnabled = this.setButtonEnabled.bind(this);
         this.increaseClicksMade = this.increaseClicksMade.bind(this);
         this.setDisabledIfClicksFinished = this.setDisabledIfClicksFinished.bind(this);
@@ -27,11 +30,24 @@ class Example extends Component {
     setDisabledIfClicksFinished() {
         if (this.state.currentClicks === CLICKS_BEFORE_ANIMATION) {
             this.setState({isButtonDisabled: true},
-                () => window.setTimeout(() => this.setState({isVibrating: true}), 5000));
+                () => {
+                    vibrateTimeout = window.setTimeout(this.setVibration, 5000);
+                    audio = new Audio('../../static/Melody.mp3');
+                    audio.play();
+            });
+        }
+    }
+
+    setVibration() {
+        if (this.state.isButtonDisabled) {
+            this.setState({isVibrating: true});
         }
     }
 
     setButtonEnabled() {
+        audio.pause();
+        window.clearTimeout(vibrateTimeout);
+
         this.setState({
             currentClicks: 0,
             isButtonDisabled: false,

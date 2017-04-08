@@ -124,10 +124,10 @@
 
 /* Standard syntax */
 .coin-single{
-    margin-top: 100px;
-    width:  10px;
+    
+    width:  50px;
     background-repeat: no-repeat;
-    position: relative;
+    position: absolute;
     -webkit-animation-name: coin-toss; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
     animation-name: coin-toss;
@@ -135,27 +135,50 @@
     visibility: hidden;
 }
 @keyframes coin-toss {
-    0%    {visibilty: visible;bottom:1px}
-    5%    {visibilty: visible;bottom:2px}
-    10%   {visibilty: visible;bottom:3px}
-    15%   {visibilty: visible;bottom:4px}
-    20%   {visibilty: visible;bottom:5px}
-    25%   {visibilty: visible;bottom:6px}
-    30%   {visibilty: visible;bottom:7px}
-    35%   {visibilty: visible;bottom:8px}
-    40%   {visibilty: visible;bottom:9px}
-    45%   {visibilty: visible;bottom:10px}
-    50%   {visibilty: visible;bottom:11px; opacity:1.0}
-    55%   {visibilty: visible;bottom:12px; opacity:0.9}
-    60%   {visibilty: visible;bottom:13px; opacity:0.8}
-    65%   {visibilty: visible;bottom:14px; opacity:0.7}
-    70%   {visibilty: visible;bottom:15px; opacity:0.6}
-    75%   {visibilty: visible;bottom:16px; opacity:0.5}
-    80%   {visibilty: visible;bottom:17px; opacity:0.4}
-    85%   {visibilty: visible;bottom:18px; opacity:0.3}
-    90%   {visibilty: visible;bottom:19px; opacity:0.2}
-    95%   {visibilty: visible;bottom:20px; opacity:0.1}
-    100%  {visibilty: visible;bottom:21px; opacity:0.0}
+    0%    {visibility: visible; top:50px}
+    5%    {visibility: visible; top:50px}
+    10%   {visibility: visible; top:50px}
+    15%   {visibility: visible; top:50px}
+    20%   {visibility: visible; top:50px}
+    25%   {visibility: visible; top:50px}
+    30%   {visibility: visible; top:50px}
+    35%   {visibility: visible; top:50px}
+    40%   {visibility: visible; top:50px}
+    45%   {visibility: visible; top:50px}
+    50%   {visibility: visible; top:50px; opacity:1.0}
+    55%   {visibility: visible; top:50px; opacity:0.9}
+    60%   {visibility: visible; top:50px; opacity:0.8}
+    65%   {visibility: visible; top:50px; opacity:0.7}
+    70%   {visibility: visible; top:50px; opacity:0.6}
+    75%   {visibility: visible; top:50px; opacity:0.5}
+    80%   {visibility: visible; top:50px; opacity:0.4}
+    85%   {visibility: visible; top:50px; opacity:0.3}
+    90%   {visibility: visible; top:50px; opacity:0.2}
+    95%   {visibility: visible; top:50px; opacity:0.1}
+    100%  {visibility: visible; top:50px; opacity:0.0}
+}
+@-webkit-keyframes coin-toss {
+    0%    {visibility: visible; top:100px}
+    5%    {visibility: visible; top:100px}
+    10%   {visibility: visible; top:100px}
+    15%   {visibility: visible; top:100px}
+    20%   {visibility: visible; top:100px}
+    25%   {visibility: visible; top:100px}
+    30%   {visibility: visible; top:100px}
+    35%   {visibility: visible; top:100px}
+    40%   {visibility: visible; top:100px}
+    45%   {visibility: visible; top:10px}
+    50%   {visibility: visible; top:11px; opacity:1.0}
+    55%   {visibility: visible; top:12px; opacity:0.9}
+    60%   {visibility: visible; top:13px; opacity:0.8}
+    65%   {visibility: visible; top:14px; opacity:0.7}
+    70%   {visibility: visible; top:15px; opacity:0.6}
+    75%   {visibility: visible; top:16px; opacity:0.5}
+    80%   {visibility: visible; top:17px; opacity:0.4}
+    85%   {visibility: visible; top:18px; opacity:0.3}
+    90%   {visibility: visible; top:19px; opacity:0.2}
+    95%   {visibility: visible; top:20px; opacity:0.1}
+    100%  {visibility: visible; top:21px; opacity:0.0}
 }
 @keyframes animation-chest {
     0%    {          visibility: visible; left:3000px; top:0px; transform: rotate( 5deg)}

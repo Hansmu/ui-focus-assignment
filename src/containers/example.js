@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 
 const CLICKS_BEFORE_ANIMATION = 5;
 let vibrateTimeout;
@@ -14,6 +14,7 @@ class Example extends Component {
         this.state = {
             isButtonDisabled: false,
             isVibrating: false,
+            isCoinDisplayed: false,
             currentClicks: 0
         };
 
@@ -24,7 +25,9 @@ class Example extends Component {
     }
 
     increaseClicksMade() {
-        this.setState({currentClicks: this.state.currentClicks + 1}, this.setDisabledIfClicksFinished);
+        this.setState({isCoinDisplayed: false}, () =>
+            this.setState({currentClicks: this.state.currentClicks + 1, isCoinDisplayed: true}, this.setDisabledIfClicksFinished));
+
     }
 
     setDisabledIfClicksFinished() {
@@ -62,23 +65,32 @@ class Example extends Component {
     render () {
         return (
             <div>
-                <Button onClick={this.increaseClicksMade}
-                        disabled={this.state.isButtonDisabled}>
-                    Hello Click Me
-                </Button>
+                {
+                    this.state.isCoinDisplayed &&
+                    <div style={{textAlign: 'center', marginLeft: '-50px'}}>
+                        <img className="coin-single"
+                                 src="../../static/coin.png"/>
+                    </div>
+                }
 
+                <Row style={{textAlign: 'center', marginTop: '150px'}}>
+                    <Button onClick={this.increaseClicksMade}
+                            bsStyle="success"
+                            disabled={this.state.isButtonDisabled}>
+                        Acquire Coin
+                    </Button>
+                </Row>
                 { this.state.isButtonDisabled &&
-                <center>
+                <Row style={{textAlign: 'center', marginLeft: '-130px'}}>
                     <img id="animate"
                          className={this.getAnimationClassName('dinosaur')}
                          src="../../static/dinosaur.png"/>
-
 
                 <img id="chest"
                      className={this.state.isVibrating ? 'chest-vibrate' : this.getAnimationClassName('chest')}
                      src="../../static/Chest.png"
                      onClick={this.setButtonEnabled}/>
-                </center> }
+                </Row> }
             </div>
 
         );

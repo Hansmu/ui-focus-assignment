@@ -5,14 +5,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import promise from 'redux-promise';
 
-import routes from './routes';
 import reducers from './reducers';
 import '../style/style.scss';
+
+import Example from './containers/example';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <Router history={browserHistory } routes={routes}/>
+        <Example/>
     </Provider>
     , document.querySelector('.container'));

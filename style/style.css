@@ -168,23 +168,24 @@
 }
 @keyframes coin-bounce-left {
     /* 1fst bounce */
-    0%    {visibility: visible; top:100px;    left:0px;  opacity:1.0}
-    5%    {visibility: visible; top:30px;     left:75px; opacity:1.0}
-    10%   {visibility: visible; top:10px ;    left:125px;opacity:1.0}
-    15%   {visibility: visible; top:50px;     left:163px;opacity:1.0}
-    20%   {visibility: visible; top:100px;    left:200px;opacity:1.0}
+    0%    {visibility: visible; top:100px;    left:0px;  opacity:1.0;  }
+    5%    {visibility: visible; top:30px;     left:75px; opacity:1.0;  }
+    10%   {visibility: visible; top:10px ;    left:125px;opacity:1.0;  }
+    15%   {visibility: visible; top:50px;     left:163px;opacity:1.0; transform: rotate3d(1,   2,  -1, 192deg);}
+    20%   {visibility: visible; top:100px;    left:200px;opacity:1.0; transform: rotate3d(10, 20, -20, 192deg);}
     /* 2nd bounce */
-    30%   {visibility: visible; top:50px ;    left:250px;opacity:1.0}
-    40%   {visibility: visible; top:100px;    left:300px;opacity:1.0}
+
+    30%   {visibility: visible; top:50px ;    left:250px;opacity:1.0; transform: rotate3d(20, 30, -30, 192deg);}
+    40%   {visibility: visible; top:100px;    left:300px;opacity:1.0; transform: rotate3d(30, 40, -40, 192deg);}
     /* 3rd bounce */
-    50%   {visibility: visible; top:60px ;    left:325px;opacity:0.9}
-    60%   {visibility: visible; top:100px;    left:350px;opacity:0.8}
+    50%   {visibility: visible; top:60px ;    left:325px;opacity:0.9;  }
+    60%   {visibility: visible; top:100px;    left:350px;opacity:0.8;  }
     /* 4th bounce */
-    70%   {visibility: visible; top:80px ;    left:363px;opacity:0.7}
-    80%   {visibility: visible; top:100px;    left:375px;opacity:0.6}
-    /* 5th bounce */
-    90%   {visibility: visible; top:95px ;    left:381px;opacity:0.4}
-    100%  {visibility: visible; top:100px;    left:387px;opacity:0.2}
+    70%   {visibility: visible; top:80px ;    left:363px;opacity:0.7;  }
+    80%   {visibility: visible; top:100px;    left:375px;opacity:0.6;  }
+    /* 5th bounce */                                               
+    90%   {visibility: visible; top:95px ;    left:381px;opacity:0.4;  }
+    100%  {visibility: visible; top:100px;    left:387px;opacity:0.2;  }
     
 }
 @keyframes coin-bounce-right {
@@ -192,11 +193,11 @@
     0%    {visibility: visible; top:100px;    right:0px;  opacity:1.0}
     5%    {visibility: visible; top:30px;     right:75px; opacity:1.0}
     10%   {visibility: visible; top:10px ;    right:125px;opacity:1.0}
-    15%   {visibility: visible; top:50px;     right:163px;opacity:1.0}
-    20%   {visibility: visible; top:100px;    right:200px;opacity:1.0}
+    15%   {visibility: visible; top:50px;     right:163px;opacity:1.0; transform: rotate3d(1,   2,  -1, 192deg);}
+    20%   {visibility: visible; top:100px;    right:200px;opacity:1.0; transform: rotate3d(10, 20, -20, 192deg);}
     /* 2nd bounce */
-    30%   {visibility: visible; top:50px ;    right:250px;opacity:1.0}
-    40%   {visibility: visible; top:100px;    right:300px;opacity:1.0}
+    30%   {visibility: visible; top:50px ;    right:250px;opacity:1.0; transform: rotate3d(20, 30, -30, 192deg);}
+    40%   {visibility: visible; top:100px;    right:300px;opacity:1.0; transform: rotate3d(30, 40, -40, 192deg);}
     /* 3rd bounce */
     50%   {visibility: visible; top:60px ;    right:325px;opacity:0.9}
     60%   {visibility: visible; top:100px;    right:350px;opacity:0.8}
